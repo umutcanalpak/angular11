@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-show-dep',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowDepComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: SharedService) { }
 
   ngOnInit(): void {
+    this.refreshDepList;
   }
 
+  DepartmentList: any = [];
+  refreshDepList() {
+    this.service.getDepList().subscribe(data => {
+      this.DepartmentList = data;
+    });
+  }
 }
