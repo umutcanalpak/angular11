@@ -11,7 +11,7 @@ export class ShowDepComponent implements OnInit {
   constructor(private service: SharedService) { }
 
   ngOnInit(): void {
-    this.refreshDepList;
+    this.refreshDepList();
   }
 
   DepartmentList: any = [];
